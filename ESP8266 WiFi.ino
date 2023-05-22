@@ -1,9 +1,3 @@
-//# espYraspi
-//Scripts para ESP8266 y Raspberri
-/**
-Sci
-**/
-
 /****
 Script para controlar unha placa ESP8266 e conectar a unha WiFi predeterminada que xenerara 
 a placa Raspberri
@@ -24,7 +18,7 @@ bool conectado = false;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  Serial.begin(9600); //Recordar que a velocidade de baulios sexa a mesma que nos da o monitor
   pinMode(LED, OUTPUT);
   conectado = conectarWiFi();
 }
@@ -42,12 +36,12 @@ void escintila(int espera) {
 }
 
 // Función que se encarga de xestionar a conexión á rede
-bool conectarWiFi() { // cambiamos void por bool para que nos responda verdadeiro ou falso
+bool conectarWiFi() { // cambiamos void por bool para que nos responda verdadeiro ou falsopara o que necesitamos poñer un return
   // put your main code here, to run repeatedly:
-  WiFi.mode(WIFI_STA); //Indica modo Station (conexion a outro dispositivo)
+  WiFi.mode(WIFI_STA); //Indica modo Station (conexion a outro dispositivo) conectase como unha wifi que se conecta a outra wifi
   WiFi.disconnect(); // Desconecta unha posible conexion previa
   WiFi.begin(WIFI_SSID, WIFI_PASS); // Inicia a conexion
-  Serial.print("\n\nAgardando pola WiFi ");
+  Serial.print("\n\nAgardando pola WiFi "); // \n\ quere decir 2 voltas de carro e decir deixa 2 liñas en branco antes de escribir
   int contador = 0; // Comproba estado da conexión e fai varias tentativas
   while(WiFi.status() != WL_CONNECTED and contador < MAX_INTENTOS) {
     contador++;
@@ -64,5 +58,5 @@ bool conectarWiFi() { // cambiamos void por bool para que nos responda verdadeir
     Serial.println("Non se puido conectar á WiFi");
     conectado = false;
   }
-  return(conectado);
+  return(conectado); // utilizamolo porque é bool, void non necesita devolucion
 }
