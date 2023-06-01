@@ -2,6 +2,14 @@
 Script para controlar unha placa ESP8266 e conectar a unha WiFi predeterminada que xenerara 
 a placa Raspberri
 
+como  se instala IDE de arduino (ou outros programas a traves do terminal)
+
+1 Abrimos terminal
+2 sudo apt-get update
+3 sudo apt-cache search arduino
+4 sudo apt-get install arduino
+5 comprobar se esta instalado
+
 Datos:
 MQTT
 Datos MQTT broker en mqtt.com
